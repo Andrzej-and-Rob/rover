@@ -1,16 +1,32 @@
 package com.example.rover;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 
 public class RoverServiceTests {
     @Test
     void should_place_the_rover_at_0_0_north() {
-        RoverService roverService = new RoverService();
+        RoverRepository repository = Mockito.mock(RoverRepository.class);
+        RoverService roverService = new RoverService(repository);
         roverService.placeRover();
         Position expectedPosition = new Position(new Coordinates(0,0), Direction.NORTH);
         assertThat(roverService.roverPosition()).isEqualTo(expectedPosition);
+    }
+
+    @Test
+    void should_save_a_placed_rover() {
+        // arrange
+        RoverRepository repository = Mockito.mock(RoverRepository.class);
+
+        // act
+        RoverService roverService = new RoverService(repository);
+        roverService.placeRover();
+
+        // assert
+        verify(repository).save(Mockito.any(Rover.class));
     }
 
 }
