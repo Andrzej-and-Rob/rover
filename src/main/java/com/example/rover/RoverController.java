@@ -22,9 +22,6 @@ public class RoverController {
 
     @PostMapping
     String viewRoverPosition(Model model) {
-        rover.place();
-        Position position = rover.getPosition();
-        model.addAttribute(position);
         return "rover-position";
     }
 }
