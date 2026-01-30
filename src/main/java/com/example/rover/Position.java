@@ -1,4 +1,4 @@
 package com.example.rover;
 
-public record Position() {
+public record Position(Coordinates coordinates, Direction direction) {
 }
