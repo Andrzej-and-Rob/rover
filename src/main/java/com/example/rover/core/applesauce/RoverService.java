@@ -1,4 +1,6 @@
-package com.example.rover;
+package com.example.rover.core.applesauce;
+
+import com.example.rover.core.drivenports.RoverRepository;
 
 public class RoverService {
     private final RoverRepository repository;

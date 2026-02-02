@@ -1,4 +1,4 @@
-package com.example.rover;
+package com.example.rover.core.applesauce;
 
 public record Coordinates(int x, int y) {
 }

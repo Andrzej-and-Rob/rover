@@ -1,5 +1,7 @@
 package com.example.rover;
 
+import com.example.rover.core.applesauce.*;
+import com.example.rover.core.drivenports.RoverRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
