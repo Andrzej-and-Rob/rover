@@ -1,7 +1,7 @@
 package com.example.rover;
 
 import com.example.rover.core.applesauce.*;
-import com.example.rover.core.drivenports.RoverRepository;
+import com.example.rover.core.drivenports.ForStoringRovers;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
 public class RoverServiceTests {
     @Test
     void should_place_the_rover_at_0_0_north() {
-        RoverRepository repository = Mockito.mock(RoverRepository.class);
+        ForStoringRovers repository = Mockito.mock(ForStoringRovers.class);
         RoverService roverService = new RoverService(repository);
         roverService.placeRover();
         Position expectedPosition = new Position(new Coordinates(0,0), Direction.NORTH);
@@ -21,7 +21,7 @@ public class RoverServiceTests {
     @Test
     void should_save_a_placed_rover() {
         // arrange
-        RoverRepository repository = Mockito.mock(RoverRepository.class);
+        ForStoringRovers repository = Mockito.mock(ForStoringRovers.class);
 
         // act
         RoverService roverService = new RoverService(repository);
