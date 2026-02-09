@@ -23,13 +23,14 @@ class RoverServiceTests {
     }
 
     @Test
-    void should_save_a_placed_rover() {
+    void should_save_a_placed_rover_at_given_location() {
         ForStoringRovers repository = Mockito.mock(ForStoringRovers.class);
         RoverService roverService = new RoverService(repository);
+        Coordinates fiveSix = new Coordinates(5, 6);
 
-        roverService.placeRover();
+        roverService.placeRover(fiveSix);
 
-        verify(repository).save(Mockito.any(Rover.class));
+        verify(repository).save(new Rover(fiveSix));
     }
 
     @Disabled("Creating a repository implementation")

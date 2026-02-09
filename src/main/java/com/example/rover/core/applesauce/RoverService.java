@@ -18,6 +18,6 @@ public class RoverService {
     }
 
     public void placeRover(Coordinates coordinates) {
-
+        repository.save(new Rover(coordinates));
     }
 }
