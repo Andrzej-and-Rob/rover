@@ -7,7 +7,11 @@ public class Rover {
     private final Coordinates coordinates;
 
     public Rover() {
-        coordinates = new Coordinates(0,0);
+        this(new Coordinates(0, 0));
+    }
+
+    public Rover(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
     @Override
@@ -20,9 +24,5 @@ public class Rover {
     @Override
     public int hashCode() {
         return Objects.hashCode(coordinates);
-    }
-
-    public Rover(Coordinates coordinates) {
-        this.coordinates = coordinates;
     }
 }
