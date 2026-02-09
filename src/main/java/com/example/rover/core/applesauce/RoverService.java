@@ -16,4 +16,8 @@ public class RoverService {
     public Position roverPosition() {
         return new Position(new Coordinates(0,0), Direction.NORTH);
     }
+
+    public void placeRover(Coordinates coordinates) {
+
+    }
 }
