@@ -3,7 +3,6 @@ package com.example.rover;
 import com.example.rover.core.applesauce.*;
 import com.example.rover.core.drivenports.ForStoringRovers;
 import com.example.rover.drivenadapters.InMemoryRepository;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -18,7 +17,7 @@ class RoverServiceTests {
 
         roverService.placeRover();
 
-        Position expectedPosition = new Position(new Coordinates(0,0), Direction.NORTH);
+        Position expectedPosition = new Position(new Coordinates(0, 0), Direction.NORTH);
         assertThat(roverService.roverPosition()).isEqualTo(expectedPosition);
     }
 
@@ -33,9 +32,8 @@ class RoverServiceTests {
         verify(repository).save(new Rover(fiveSix));
     }
 
-    @Disabled("Creating a repository implementation")
     @Test
-    void applesauce() {
+    void should_place_a_rover_at_given_location() {
         ForStoringRovers repository = new InMemoryRepository();
         RoverService roverService = new RoverService(repository);
         Coordinates fiveSix = new Coordinates(5, 6);

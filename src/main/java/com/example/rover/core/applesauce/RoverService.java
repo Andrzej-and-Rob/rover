@@ -18,6 +18,9 @@ public class RoverService {
     }
 
     public Position roverPosition() {
-        return new Position(new Coordinates(0,0), Direction.NORTH);
+        Coordinates coordinates = repository.find()
+                .get()
+                .coordinates();
+        return new Position(coordinates, Direction.NORTH);
     }
 }

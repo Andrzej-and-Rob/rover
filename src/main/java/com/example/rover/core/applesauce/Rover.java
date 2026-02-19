@@ -14,6 +14,10 @@ public class Rover {
         this.coordinates = coordinates;
     }
 
+    public Coordinates coordinates() {
+        return coordinates;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
