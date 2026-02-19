@@ -13,7 +13,7 @@ import static org.mockito.Mockito.verify;
 class RoverServiceTests {
     @Test
     void should_place_the_rover_at_0_0_north() {
-        ForStoringRovers repository = Mockito.mock(ForStoringRovers.class);
+        ForStoringRovers repository = new InMemoryRepository();
         RoverService roverService = new RoverService(repository);
 
         roverService.placeRover();
