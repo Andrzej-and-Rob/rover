@@ -3,7 +3,6 @@ package com.example.rover.drivenadapters;
 import com.example.rover.core.applesauce.Coordinates;
 import com.example.rover.core.applesauce.Rover;
 import com.example.rover.core.drivenports.ForStoringRovers;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -20,7 +19,6 @@ class InMemoryRepositoryTest {
         assertThat(rover).isEmpty();
     }
 
-    @Disabled("doing zero case first")
     @Test
     void should_save_and_retrieve_a_rover() {
         ForStoringRovers repository = new InMemoryRepository();
@@ -28,5 +26,8 @@ class InMemoryRepositoryTest {
 
         repository.save(rover);
         Optional<Rover> resultOfFind = repository.find();
+
+        assertThat(resultOfFind)
+                .contains(rover);
     }
 }
