@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tags (!slow)" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <module name="rover" />
+    <option name="MAIN_CLASS_NAME" value="" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="tags" />
+    <dir value="$PROJECT_DIR$/src/test/java" />
+    <tag value="!slow" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
