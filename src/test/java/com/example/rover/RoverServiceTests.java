@@ -40,6 +40,7 @@ class RoverServiceTests {
         RoverService roverService = new RoverService(repository);
 
         assertThatThrownBy(roverService::roverPosition)
-                .isInstanceOf(NoSuchRoverException.class);
+                .isInstanceOf(NoSuchRoverException.class)
+                .hasMessage("No rover found");
     }
 }

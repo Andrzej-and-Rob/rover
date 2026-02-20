@@ -19,7 +19,7 @@ public class RoverService {
 
     public Position roverPosition() {
         Coordinates coordinates = repository.find()
-                .orElseThrow(NoSuchRoverException::new)
+                .orElseThrow(() -> new NoSuchRoverException("No rover found"))
                 .coordinates();
         return new Position(coordinates, Direction.NORTH);
     }
