@@ -1,9 +1,6 @@
 package com.example.rover;
 
-import com.example.rover.core.applesauce.Coordinates;
-import com.example.rover.core.applesauce.Direction;
-import com.example.rover.core.applesauce.Position;
-import com.example.rover.core.applesauce.RoverService;
+import com.example.rover.core.applesauce.*;
 import com.example.rover.core.drivenports.ForStoringRovers;
 import com.example.rover.drivenadapters.InMemoryRepository;
 import org.junit.jupiter.api.Test;
@@ -43,6 +40,6 @@ class RoverServiceTests {
         RoverService roverService = new RoverService(repository);
 
         assertThatThrownBy(roverService::roverPosition)
-                .isInstanceOf(NoSuchElementException.class);
+                .isInstanceOf(NoSuchRoverException.class);
     }
 }
