@@ -10,6 +10,13 @@ public class Rover {
         this(new Coordinates(0, 0));
     }
 
+    @Override
+    public String toString() {
+        return "Rover{" +
+                "coordinates=" + coordinates +
+                '}';
+    }
+
     public Rover(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
