@@ -8,7 +8,10 @@ import com.example.rover.core.drivenports.ForStoringRovers;
 import com.example.rover.drivenadapters.InMemoryRepository;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RoverServiceTests {
     @Test
@@ -34,4 +37,12 @@ class RoverServiceTests {
         assertThat(roverService.roverPosition()).isEqualTo(expectedPosition);
     }
 
+    @Test
+    void should_throw_exception_when_no_rover_has_been_placed() {
+        ForStoringRovers repository = new InMemoryRepository();
+        RoverService roverService = new RoverService(repository);
+
+        assertThatThrownBy(roverService::roverPosition)
+                .isInstanceOf(NoSuchElementException.class);
+    }
 }
