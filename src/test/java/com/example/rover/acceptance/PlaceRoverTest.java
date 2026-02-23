@@ -1,20 +1,32 @@
 package com.example.rover.acceptance;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Tag;
+import org.htmlunit.WebClient;
+import org.htmlunit.html.HtmlForm;
+import org.htmlunit.html.HtmlPage;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import java.io.IOException;
 
-public class PlaceRoverTest {
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class PlaceRoverTest {
+
+    @Autowired
+    private WebClient webClient;
 
     @Test
-    @Disabled
-    @Tag("Manual")
-    void rover_is_placed_at_0_0() {
-        // Given we are on Fake Mars
-        // When the Sky Crane places the Rover
-        // Then the Rover is at (0, 0) N
-        fail("This is a manual test to verify rover placement at initial position");
+    void clicking_Place_Rover_returns_rover_position_page() throws IOException {
+        HtmlPage indexPage = webClient.getPage("/");
+
+        HtmlForm htmlForm = indexPage.getForms().getFirst();
+        HtmlPage roverPosition = htmlForm.getInputByValue("Place Rover").click();
+
+        assertThat(roverPosition.getTitleText())
+                .isEqualTo("Rover Position");
     }
 }
