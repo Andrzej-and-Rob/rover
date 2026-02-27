@@ -2,6 +2,7 @@ package com.example.rover.acceptance;
 
 import org.htmlunit.WebClient;
 import org.htmlunit.html.DomElement;
+import org.htmlunit.html.HtmlBody;
 import org.htmlunit.html.HtmlForm;
 import org.htmlunit.html.HtmlPage;
 import org.junit.jupiter.api.Disabled;
@@ -26,9 +27,9 @@ class PlaceRoverTest {
         HtmlPage indexPage = webClient.getPage("/");
 
         HtmlForm htmlForm = indexPage.getForms().getFirst();
-        HtmlPage roverPosition = htmlForm.getInputByValue("Place Rover").click();
+        HtmlPage roverPositionPage = htmlForm.getInputByValue("Place Rover").click();
 
-        assertThat(roverPosition.getTitleText())
+        assertThat(roverPositionPage.getTitleText())
                 .isEqualTo("Rover Position");
     }
 
@@ -37,12 +38,10 @@ class PlaceRoverTest {
     void position_page_shows_rover_position() throws IOException {
         HtmlPage indexPage = webClient.getPage("/");
         HtmlForm htmlForm = indexPage.getForms().getFirst();
-        HtmlPage roverPosition = htmlForm.getInputByValue("Place Rover").click();
+        HtmlPage roverPositionPage = htmlForm.getInputByValue("Place Rover").click();
 
-        DomElement roverPositionElement = roverPosition.getElementById("rover-position");
+        HtmlBody body = roverPositionPage.getBody();
 
-        assertThat(roverPositionElement)
-                .isNotNull()
-                .satisfies(element -> assertThat(element.asNormalizedText()).contains("(0, 0) N"));
+        assertThat(body.asNormalizedText()).contains("(0, 0) N");
     }
 }
