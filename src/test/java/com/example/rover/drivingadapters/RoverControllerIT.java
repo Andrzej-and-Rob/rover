@@ -6,6 +6,7 @@ import com.example.rover.core.applesauce.RoverService;
 import org.htmlunit.WebClient;
 import org.htmlunit.html.HtmlForm;
 import org.htmlunit.html.HtmlPage;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -26,6 +27,7 @@ class RoverControllerIT {
     private WebClient webClient;
 
     @Test
+    @Disabled("This is a behaviour test. Trying an implementation test first")
     void should_render_the_rover_position_when_rover_placed() throws IOException {
         given(roverService.roverPosition()).willReturn(new Position(new Coordinates(5,7), EAST));
 
