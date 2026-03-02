@@ -1,7 +1,9 @@
 package com.example.rover.core.applesauce;
 
 import com.example.rover.core.drivenports.ForStoringRovers;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RoverService {
     private final ForStoringRovers repository;
 
