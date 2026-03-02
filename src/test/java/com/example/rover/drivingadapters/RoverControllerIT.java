@@ -15,8 +15,7 @@ import org.springframework.test.web.servlet.assertj.MockMvcTester;
 
 import java.io.IOException;
 
-import static com.example.rover.core.applesauce.Direction.EAST;
-import static com.example.rover.core.applesauce.Direction.SOUTH;
+import static com.example.rover.core.applesauce.Direction.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.BDDAssertions.then;
 import static org.mockito.BDDMockito.given;
@@ -33,7 +32,6 @@ class RoverControllerIT {
     private MockMvcTester mvc;
 
     @Test
-    @Disabled("This is a behaviour test. Trying an implementation test first")
     void should_render_the_rover_position_when_rover_placed() throws IOException {
         given(roverService.roverPosition()).willReturn(new Position(new Coordinates(5, 7), EAST));
 
@@ -45,6 +43,18 @@ class RoverControllerIT {
     }
 
     @Test
+    @Disabled
+    void should_render_the_rover_position_when_rover_placed_elsewhere() throws IOException {
+        given(roverService.roverPosition()).willReturn(new Position(new Coordinates(1, 3), WEST));
+
+        HtmlPage indexPage = webClient.getPage("/");
+        HtmlForm htmlForm = indexPage.getForms().getFirst();
+        HtmlPage roverPositionPage = htmlForm.getInputByValue("Place Rover").click();
+
+        assertThat(roverPositionPage.getBody().asNormalizedText()).contains("(1, 3) W");
+    }
+
+    @Test
     void should_add_rover_position_attribute_to_model_when_rover_placed() {
         Position fiveFourSouth = new Position(new Coordinates(5, 4), SOUTH);
         given(roverService.roverPosition())
@@ -52,6 +62,6 @@ class RoverControllerIT {
 
         then(mvc.post().uri("/"))
                 .model()
-                .containsEntry("position", fiveFourSouth);
+                .containsEntry("position", "(5, 4) S");
     }
 }
