@@ -23,11 +23,10 @@ public class RoverController {
     }
 
     @PostMapping
-    ModelAndView viewRoverPosition(Model model) {
-        ModelAndView modelAndView = new ModelAndView("rover-position");
+    String viewRoverPosition(Model model) {
         roverService.placeRover();
         Position position = roverService.roverPosition();
-        modelAndView.addObject("position", position.display());
-        return modelAndView;
+        model.addAttribute("position", position.display());
+        return "rover-position";
     }
 }
