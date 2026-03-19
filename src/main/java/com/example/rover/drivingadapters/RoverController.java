@@ -27,9 +27,8 @@ public class RoverController {
         ModelAndView modelAndView = new ModelAndView("rover-position");
         roverService.placeRover();
         Position position = roverService.roverPosition();
-        modelAndView.addObject("position", "(%d, %d) %s".formatted(position.coordinates().x(),
-                position.coordinates().y(),
-                position.direction().toString().substring(0, 1)));
+        modelAndView.addObject("position", position.display());
         return modelAndView;
     }
+
 }
