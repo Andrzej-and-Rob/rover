@@ -1,11 +1,9 @@
 package com.example.rover.acceptance;
 
 import org.htmlunit.WebClient;
-import org.htmlunit.html.DomElement;
 import org.htmlunit.html.HtmlBody;
 import org.htmlunit.html.HtmlForm;
 import org.htmlunit.html.HtmlPage;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,7 +32,6 @@ class PlaceRoverTest {
     }
 
     @Test
-    @Disabled("Implementing")
     void position_page_shows_rover_position() throws IOException {
         HtmlPage indexPage = webClient.getPage("/");
         HtmlForm htmlForm = indexPage.getForms().getFirst();

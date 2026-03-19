@@ -30,5 +30,4 @@ public class RoverController {
         modelAndView.addObject("position", position.display());
         return modelAndView;
     }
-
 }
