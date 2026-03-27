@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Mars Rover</title>
 </head>
 <body>
-<form method="post">
-    <input type="submit" value="Place Rover" />
-</form>
+<p th:text="${position}"></p>
 </body>
 </html>
