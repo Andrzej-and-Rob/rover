@@ -1,6 +1,7 @@
 package com.example.rover.drivingadapters;
 
 import com.example.rover.core.applesauce.Coordinates;
+import com.example.rover.core.applesauce.NoSuchRoverException;
 import com.example.rover.core.applesauce.Position;
 import com.example.rover.core.applesauce.RoverService;
 import org.htmlunit.WebClient;
@@ -63,5 +64,15 @@ class RoverControllerIT {
         then(mvc.get().uri("/rover-position"))
                 .model()
                 .containsEntry("position", "(5, 4) S");
+    }
+
+    @Test
+    void should_show_no_rover_when_no_rover_placed() throws IOException {
+        given(roverService.roverPosition())
+                .willThrow(NoSuchRoverException.class);
+
+        HtmlPage roverPositionPage = webClient.getPage("/rover-position");
+
+        assertThat(roverPositionPage.getBody().asNormalizedText()).contains("No Rover");
     }
 }
