@@ -29,8 +29,12 @@ public class RoverController {
 
     @GetMapping("/rover-position")
     String viewRoverPositionNew(Model model) {
-        Position position = roverService.roverPosition();
-        model.addAttribute("position", position.display());
+        try {
+            Position position = roverService.roverPosition();
+            model.addAttribute("position", position.display());
+        } catch (Exception e) {
+            model.addAttribute("position", "No Rover");
+        }
         return "rover-position";
     }
 }
