@@ -55,12 +55,12 @@ class RoverControllerIT {
     }
 
     @Test
-    void should_add_rover_position_attribute_to_model_when_rover_placed() {
+    void should_add_rover_position_attribute_to_model_when_getting_rover_position() {
         Position fiveFourSouth = new Position(new Coordinates(5, 4), SOUTH);
         given(roverService.roverPosition())
                 .willReturn(fiveFourSouth);
 
-        then(mvc.post().uri("/"))
+        then(mvc.get().uri("/rover-position"))
                 .model()
                 .containsEntry("position", "(5, 4) S");
     }

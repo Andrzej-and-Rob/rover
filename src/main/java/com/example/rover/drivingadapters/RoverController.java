@@ -17,14 +17,20 @@ public class RoverController {
         this.roverService = roverService;
     }
 
+    //    ("/") ?
     @GetMapping
     String viewIndex(Model model) {
         return "index";
     }
 
     @PostMapping
-    String viewRoverPosition(Model model) {
+    String placeRover(Model model) {
         roverService.placeRover();
+        return "redirect:/rover-position";
+    }
+
+    @GetMapping("/rover-position")
+    String viewRoverPositionNew(Model model) {
         Position position = roverService.roverPosition();
         model.addAttribute("position", position.display());
         return "rover-position";
