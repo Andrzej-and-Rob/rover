@@ -1,5 +1,6 @@
 package com.example.rover.drivingadapters;
 
+import com.example.rover.core.applesauce.NoSuchRoverException;
 import com.example.rover.core.applesauce.Position;
 import com.example.rover.core.applesauce.RoverService;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,7 @@ public class RoverController {
         try {
             Position position = roverService.roverPosition();
             model.addAttribute("position", position.display());
-        } catch (Exception e) {
+        } catch (NoSuchRoverException _) {
             model.addAttribute("position", "No Rover");
         }
         return "rover-position";
