@@ -44,7 +44,6 @@ class RoverControllerIT {
     }
 
     @Test
-    @Disabled
     void should_render_the_rover_position_when_rover_placed_elsewhere() throws IOException {
         given(roverService.roverPosition()).willReturn(new Position(new Coordinates(1, 3), WEST));
 
