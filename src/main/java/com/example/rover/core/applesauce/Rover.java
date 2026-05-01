@@ -5,9 +5,20 @@ import java.util.Objects;
 public class Rover {
 
     private final Coordinates coordinates;
+    private Position position;
 
     public Rover() {
         this(new Coordinates(0, 0));
+    }
+
+    public Rover(Position position) {
+        this();
+        this.position = position;
+    }
+
+    public Rover(Coordinates coordinates) {
+        this.coordinates = coordinates;
+        this.position = new Position(coordinates, Direction.NORTH);
     }
 
     @Override
@@ -18,12 +29,12 @@ public class Rover {
                 '}';
     }
 
-    public Rover(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
-
     public Coordinates coordinates() {
         return coordinates;
+    }
+
+    public Position position() {
+        return position;
     }
 
     @Override

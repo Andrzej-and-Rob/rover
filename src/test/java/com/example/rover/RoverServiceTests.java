@@ -33,6 +33,18 @@ class RoverServiceTests {
     }
 
     @Test
+    void should_place_a_rover_at_given_position() {
+        // TODO: could be separated into a common setup
+        ForStoringRovers repository = new InMemoryRepository();
+        RoverService roverService = new RoverService(repository);
+        Position fiveSixWest = new Position(new Coordinates(5, 6), Direction.WEST);
+
+        roverService.placeRover(fiveSixWest);
+
+        assertThat(roverService.roverPosition()).isEqualTo(fiveSixWest);
+    }
+
+    @Test
     void should_throw_exception_when_no_rover_has_been_placed() {
         ForStoringRovers repository = new InMemoryRepository();
         RoverService roverService = new RoverService(repository);

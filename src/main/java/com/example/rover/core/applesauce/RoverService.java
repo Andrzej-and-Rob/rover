@@ -20,9 +20,12 @@ public class RoverService {
     }
 
     public Position roverPosition() {
-        Coordinates coordinates = repository.find()
+        return repository.find()
                 .orElseThrow(() -> new NoSuchRoverException("No rover found"))
-                .coordinates();
-        return new Position(coordinates, Direction.NORTH);
+                .position();
+    }
+
+    public void placeRover(Position position) {
+        repository.save(new Rover(position));
     }
 }
