@@ -11,10 +11,4 @@ public class RoverApplication {
 	static void main(String[] args) {
 		SpringApplication.run(RoverApplication.class, args);
 	}
-
-    @Bean
-    Rover rover() {
-        return new Rover();
-    }
-
 }
