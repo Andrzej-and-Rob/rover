@@ -15,10 +15,6 @@ public class RoverService {
         repository.save(new Rover());
     }
 
-    public void placeRover(Coordinates coordinates) {
-        repository.save(new Rover(coordinates));
-    }
-
     public void placeRover(Position position) {
         repository.save(new Rover(position));
     }

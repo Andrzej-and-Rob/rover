@@ -25,11 +25,11 @@ class RoverServiceTests {
         ForStoringRovers repository = new InMemoryRepository();
         RoverService roverService = new RoverService(repository);
         Coordinates fiveSix = new Coordinates(5, 6);
+        Position fiveSixNorth = new Position(fiveSix, Direction.NORTH);
 
-        roverService.placeRover(fiveSix);
+        roverService.placeRover(fiveSixNorth);
 
-        Position expectedPosition = new Position(fiveSix, Direction.NORTH);
-        assertThat(roverService.roverPosition()).isEqualTo(expectedPosition);
+        assertThat(roverService.roverPosition()).isEqualTo(fiveSixNorth);
     }
 
     @Test
