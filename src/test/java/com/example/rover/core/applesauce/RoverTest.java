@@ -9,7 +9,8 @@ class RoverTest {
     void should_have_a_toString_showing_the_coordinates() {
         Rover rover = new Rover(new Coordinates(1, 2));
 
-        assertThat(rover).hasToString("Rover{coordinates=Coordinates[x=1, y=2]}");
+        assertThat(rover)
+                .hasToString("Rover{coordinates=Coordinates[x=1, y=2], direction=N}");
     }
 
 }

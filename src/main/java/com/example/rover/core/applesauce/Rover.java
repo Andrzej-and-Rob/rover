@@ -14,6 +14,7 @@ public class Rover {
     public String toString() {
         return "Rover{" +
                 "coordinates=" + coordinates +
+                ", direction=N" +
                 '}';
     }
 
