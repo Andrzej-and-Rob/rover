@@ -16,6 +16,7 @@ public class Rover {
         this.position = position;
     }
 
+    // Todo: remove this
     public Rover(Coordinates coordinates) {
         this.coordinates = coordinates;
         this.position = new Position(coordinates, Direction.NORTH);
@@ -27,10 +28,6 @@ public class Rover {
                 "coordinates=" + coordinates +
                 ", direction=N" +
                 '}';
-    }
-
-    public Coordinates coordinates() {
-        return coordinates;
     }
 
     public Position position() {
