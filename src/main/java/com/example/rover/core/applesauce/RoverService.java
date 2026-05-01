@@ -19,13 +19,13 @@ public class RoverService {
         repository.save(new Rover(coordinates));
     }
 
+    public void placeRover(Position position) {
+        repository.save(new Rover(position));
+    }
+
     public Position roverPosition() {
         return repository.find()
                 .orElseThrow(() -> new NoSuchRoverException("No rover found"))
                 .position();
-    }
-
-    public void placeRover(Position position) {
-        repository.save(new Rover(position));
     }
 }
