@@ -4,28 +4,20 @@ import java.util.Objects;
 
 public class Rover {
 
-    private final Coordinates coordinates;
-    private Position position;
+    private final Position position;
 
     public Rover() {
-        this(new Coordinates(0, 0));
+        this(new Position(new Coordinates(0, 0), Direction.NORTH));
     }
 
     public Rover(Position position) {
-        this();
         this.position = position;
-    }
-
-    // Todo: remove this
-    public Rover(Coordinates coordinates) {
-        this.coordinates = coordinates;
-        this.position = new Position(coordinates, Direction.NORTH);
     }
 
     @Override
     public String toString() {
         return "Rover{" +
-                "coordinates=" + coordinates +
+                "coordinates=" + position.coordinates() +
                 ", direction=N" +
                 '}';
     }
@@ -38,11 +30,11 @@ public class Rover {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Rover rover = (Rover) o;
-        return Objects.equals(coordinates, rover.coordinates);
+        return Objects.equals(position, rover.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(coordinates);
+        return Objects.hashCode(position);
     }
 }

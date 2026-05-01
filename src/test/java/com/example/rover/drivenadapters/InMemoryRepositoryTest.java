@@ -1,6 +1,8 @@
 package com.example.rover.drivenadapters;
 
 import com.example.rover.core.applesauce.Coordinates;
+import com.example.rover.core.applesauce.Direction;
+import com.example.rover.core.applesauce.Position;
 import com.example.rover.core.applesauce.Rover;
 import com.example.rover.core.drivenports.ForStoringRovers;
 import org.junit.jupiter.api.Test;
@@ -22,7 +24,7 @@ class InMemoryRepositoryTest {
     @Test
     void should_save_and_retrieve_a_rover() {
         ForStoringRovers repository = new InMemoryRepository();
-        Rover rover = new Rover(new Coordinates(4, 6));
+        Rover rover = new Rover(new Position(new Coordinates(4, 6), Direction.NORTH));
 
         repository.save(rover);
         Optional<Rover> resultOfFind = repository.find();
