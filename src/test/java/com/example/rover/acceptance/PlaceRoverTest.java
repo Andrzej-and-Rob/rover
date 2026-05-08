@@ -3,6 +3,7 @@ package com.example.rover.acceptance;
 import org.htmlunit.WebClient;
 import org.htmlunit.html.*;
 import org.htmlunit.javascript.host.event.KeyboardEvent;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -61,5 +62,17 @@ class PlaceRoverTest {
         HtmlBody body = roverPositionPage.getBody();
 
         assertThat(body.asNormalizedText()).contains("(4, 5) E");
+    }
+
+    @Test
+    @Disabled("unfinished, refer to notes related to 2026-05-08")
+    void rover_can_move_forward_one_square() throws IOException {
+        HtmlPage indexPage = webClient.getPage("/");
+        HtmlForm htmlForm = indexPage.getForms().getFirst();
+        HtmlPage roverPositionPage = htmlForm.getInputByValue("Place Rover").click();
+
+        HtmlBody body = roverPositionPage.getBody();
+
+        assertThat(body.asNormalizedText()).contains("(0, 0) N");
     }
 }
