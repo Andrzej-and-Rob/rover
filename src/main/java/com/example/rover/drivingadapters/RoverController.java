@@ -24,8 +24,8 @@ public class RoverController {
     @PostMapping("/")
     String placeRover(@RequestParam("x-coordinate") int xCoordinate,
                       @RequestParam("y-coordinate") int yCoordinate,
-                      @RequestParam("direction") String direction) {
-        roverService.placeRover(new Position(new Coordinates(xCoordinate, yCoordinate), Direction.EAST));
+                      @RequestParam("direction") Direction direction) {
+        roverService.placeRover(new Position(new Coordinates(xCoordinate, yCoordinate), direction));
         return "redirect:/rover-position";
     }
 

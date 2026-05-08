@@ -2,6 +2,7 @@ package com.example.rover.acceptance;
 
 import org.htmlunit.WebClient;
 import org.htmlunit.html.*;
+import org.htmlunit.javascript.host.event.KeyboardEvent;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -46,11 +47,13 @@ class PlaceRoverTest {
         HtmlForm htmlForm = indexPage.getForms().getFirst();
         HtmlInput xCoordinateInput = htmlForm.getInputByName("x-coordinate");
         HtmlInput yCoordinateInput = htmlForm.getInputByName("y-coordinate");
+        xCoordinateInput.type(KeyboardEvent.DOM_VK_DELETE);
         xCoordinateInput.type("4");
+        yCoordinateInput.type(KeyboardEvent.DOM_VK_DELETE);
         yCoordinateInput.type("5");
 
         HtmlSelect direction = htmlForm.getSelectByName("direction");
-        HtmlOption eastOption = direction.getOptionByValue("E");
+        HtmlOption eastOption = direction.getOptionByValue("EAST");
         direction.setSelectedAttribute(eastOption, true);
 
         HtmlPage roverPositionPage = htmlForm.getInputByValue("Place Rover").click();
