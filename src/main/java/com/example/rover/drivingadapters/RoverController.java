@@ -1,12 +1,11 @@
 package com.example.rover.drivingadapters;
 
-import com.example.rover.core.applesauce.NoSuchRoverException;
-import com.example.rover.core.applesauce.Position;
-import com.example.rover.core.applesauce.RoverService;
+import com.example.rover.core.applesauce.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RoverController {
@@ -23,8 +22,10 @@ public class RoverController {
     }
 
     @PostMapping("/")
-    String placeRover() {
-        roverService.placeRover();
+    String placeRover(@RequestParam("x-coordinate") int xCoordinate,
+                      @RequestParam("y-coordinate") int yCoordinate,
+                      @RequestParam("direction") String direction) {
+        roverService.placeRover(new Position(new Coordinates(xCoordinate, yCoordinate), Direction.EAST));
         return "redirect:/rover-position";
     }
 
