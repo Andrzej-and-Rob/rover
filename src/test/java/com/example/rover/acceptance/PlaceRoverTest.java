@@ -65,7 +65,7 @@ class PlaceRoverTest {
     }
 
     @Test
-    @Disabled("unfinished, refer to notes related to 2026-05-08")
+    @Disabled("this will be the next feature after turning the rover with buttons")
     void rover_can_move_forward_one_square() throws IOException {
         HtmlPage indexPage = webClient.getPage("/");
         HtmlForm htmlForm = indexPage.getForms().getFirst();
