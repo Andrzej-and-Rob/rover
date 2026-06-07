@@ -39,4 +39,10 @@ public class RoverController {
         }
         return "rover-position";
     }
+
+    @PostMapping("/rover-position")
+    String turnRoverLeft() {
+        roverService.turnRoverLeft();
+        return "redirect:/rover-position";
+    }
 }

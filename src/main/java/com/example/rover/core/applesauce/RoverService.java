@@ -24,4 +24,11 @@ public class RoverService {
                 .orElseThrow(() -> new NoSuchRoverException("No rover found"))
                 .position();
     }
+
+    public void turnRoverLeft() {
+        Rover rover = repository.find()
+                .orElseThrow(() -> new NoSuchRoverException("No rover found"));
+        Rover turnedRover = rover.turnLeft();
+        repository.save(turnedRover);
+    }
 }

@@ -37,4 +37,8 @@ public class Rover {
     public int hashCode() {
         return Objects.hashCode(position);
     }
+
+    public Rover turnLeft() {
+        return new Rover(new Position(position.coordinates(), Direction.WEST));
+    }
 }
