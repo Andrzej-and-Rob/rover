@@ -14,14 +14,6 @@ public class Rover {
         this.position = position;
     }
 
-    @Override
-    public String toString() {
-        return "Rover{" +
-                "coordinates=" + position.coordinates() +
-                ", direction=N" +
-                '}';
-    }
-
     public Position position() {
         return position;
     }
@@ -40,5 +32,12 @@ public class Rover {
 
     public Rover turnLeft() {
         return new Rover(new Position(position.coordinates(), Direction.WEST));
+    }
+
+    @Override
+    public String toString() {
+        return "Rover{" +
+                "position=" + position +
+                '}';
     }
 }
