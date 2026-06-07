@@ -1,6 +1,6 @@
 package com.example.rover.drivenadapters;
 
-import com.example.rover.core.applesauce.Rover;
+import com.example.rover.core.domain.Rover;
 import com.example.rover.core.drivenports.ForStoringRovers;
 import org.springframework.stereotype.Repository;
 

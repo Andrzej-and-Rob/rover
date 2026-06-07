@@ -1,9 +1,9 @@
 package com.example.rover.drivenadapters;
 
-import com.example.rover.core.applesauce.Coordinates;
-import com.example.rover.core.applesauce.Direction;
-import com.example.rover.core.applesauce.Position;
-import com.example.rover.core.applesauce.Rover;
+import com.example.rover.core.domain.Coordinates;
+import com.example.rover.core.domain.Direction;
+import com.example.rover.core.domain.Position;
+import com.example.rover.core.domain.Rover;
 import com.example.rover.core.drivenports.ForStoringRovers;
 import org.junit.jupiter.api.Test;
 

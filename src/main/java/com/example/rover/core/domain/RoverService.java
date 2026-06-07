@@ -1,4 +1,4 @@
-package com.example.rover.core.applesauce;
+package com.example.rover.core.domain;
 
 import com.example.rover.core.drivenports.ForStoringRovers;
 import org.springframework.stereotype.Service;

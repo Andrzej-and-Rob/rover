@@ -1,6 +1,6 @@
 package com.example.rover;
 
-import com.example.rover.core.applesauce.*;
+import com.example.rover.core.domain.*;
 import com.example.rover.core.drivenports.ForStoringRovers;
 import com.example.rover.drivenadapters.InMemoryRepository;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package com.example.rover.drivingadapters;
 
-import com.example.rover.core.applesauce.*;
+import com.example.rover.core.domain.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

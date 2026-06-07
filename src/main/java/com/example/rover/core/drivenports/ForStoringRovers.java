@@ -1,6 +1,6 @@
 package com.example.rover.core.drivenports;
 
-import com.example.rover.core.applesauce.Rover;
+import com.example.rover.core.domain.Rover;
 
 import java.util.Optional;
 

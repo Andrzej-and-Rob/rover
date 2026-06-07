@@ -1,4 +1,4 @@
-package com.example.rover.core.applesauce;
+package com.example.rover.core.domain;
 
 public enum Direction {
     EAST, SOUTH, WEST, NORTH

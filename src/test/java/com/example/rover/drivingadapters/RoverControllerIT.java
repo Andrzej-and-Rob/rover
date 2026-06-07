@@ -1,13 +1,12 @@
 package com.example.rover.drivingadapters;
 
-import com.example.rover.core.applesauce.Coordinates;
-import com.example.rover.core.applesauce.NoSuchRoverException;
-import com.example.rover.core.applesauce.Position;
-import com.example.rover.core.applesauce.RoverService;
+import com.example.rover.core.domain.Coordinates;
+import com.example.rover.core.domain.NoSuchRoverException;
+import com.example.rover.core.domain.Position;
+import com.example.rover.core.domain.RoverService;
 import org.htmlunit.WebClient;
 import org.htmlunit.html.HtmlForm;
 import org.htmlunit.html.HtmlPage;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -16,7 +15,7 @@ import org.springframework.test.web.servlet.assertj.MockMvcTester;
 
 import java.io.IOException;
 
-import static com.example.rover.core.applesauce.Direction.*;
+import static com.example.rover.core.domain.Direction.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.BDDAssertions.then;
 import static org.mockito.BDDMockito.given;

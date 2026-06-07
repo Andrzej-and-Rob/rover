@@ -1,4 +1,4 @@
-package com.example.rover.core.applesauce;
+package com.example.rover.core.domain;
 
 public record Position(Coordinates coordinates, Direction direction) {
     public String display() {
