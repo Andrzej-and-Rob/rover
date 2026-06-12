@@ -37,6 +37,7 @@ public class Rover {
             case NORTH -> WEST;
             case WEST -> SOUTH;
             case SOUTH -> EAST;
+            case EAST -> NORTH;
             case null, default -> position.direction();
         };
         return new Rover(new Position(position.coordinates(), direction));
