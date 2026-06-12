@@ -2,6 +2,9 @@ package com.example.rover.core.domain;
 
 import java.util.Objects;
 
+import static com.example.rover.core.domain.Direction.SOUTH;
+import static com.example.rover.core.domain.Direction.WEST;
+
 public class Rover {
 
     private final Position position;
@@ -32,8 +35,8 @@ public class Rover {
 
     public Rover turnLeft() {
         Direction direction = switch (position.direction()) {
-            case NORTH -> Direction.WEST;
-            case WEST -> Direction.SOUTH;
+            case NORTH -> WEST;
+            case WEST -> SOUTH;
             case null, default -> position.direction();
         };
         return new Rover(new Position(position.coordinates(), direction));
