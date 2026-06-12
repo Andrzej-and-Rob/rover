@@ -10,7 +10,8 @@ class RoverTurningLeftTest {
     @ParameterizedTest
     @CsvSource({
             "NORTH, WEST",
-            "WEST, SOUTH"
+            "WEST, SOUTH",
+            "SOUTH, EAST"
     })
     void rover_turns_left(Direction start, Direction expected) {
         Rover rover = new Rover(new Position(new Coordinates(1, 2), start));
