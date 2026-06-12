@@ -31,7 +31,11 @@ public class Rover {
     }
 
     public Rover turnLeft() {
-        return new Rover(new Position(position.coordinates(), Direction.WEST));
+        Direction direction;
+        if (position.direction() == Direction.NORTH) direction = Direction.WEST;
+        else if (position.direction() == Direction.WEST) direction = Direction.SOUTH;
+        else direction = position.direction();
+        return new Rover(new Position(position.coordinates(), direction));
     }
 
     @Override

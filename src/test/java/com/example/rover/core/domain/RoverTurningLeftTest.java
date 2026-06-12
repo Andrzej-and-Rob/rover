@@ -18,7 +18,6 @@ class RoverTurningLeftTest {
     }
 
     @Test
-    @Disabled("Implementing turn left behaviour")
     void rover_turns_left_when_pointing_west() {
         Rover rover = new Rover(new Position(new Coordinates(1, 2), Direction.WEST));
 
